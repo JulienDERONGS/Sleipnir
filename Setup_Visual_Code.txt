@@ -1,0 +1,16 @@
+Install it
+F1 -> "language" -> locale.json -> "en"
+install php.exe package (+ debug)
+
+F1 -> "user settings" -> settings.json
+// Placez vos paramètres dans ce fichier pour remplacer les paramètres par défaut
+{
+    "php.validate.enable": true,
+    "php.validate.executablePath": "C:\\Logiciels\\php-7.1.3-Win32-VC14-x64\\php.exe",
+    "php.validate.run": "onType"
+}
+// php5 ?
+
+
+Extensions -> install PHP Debug (F1 -> ext install php-debug)
+
