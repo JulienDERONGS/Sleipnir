@@ -1,16 +1,20 @@
-<div class="header">
-    
-    <?php
-setcookie("test_cookie", "test", time() + 3600, '/');
-?>
-<html>
-<body>
+    <nav class="sticky-nav">
+        <ul>
+            <li>
+                <a href="#">Home</a>
+            </li>
+            <li>
+                <a href="#">About</a>
+            </li>
+            <li>
+                <a href="#">Shop</a>
+            </li>
+            <li>
+                <a href="#">Contact</a>
+            </li>
+        </ul>
+    </nav>
 
-<?php
-if (count($_COOKIE) > 0) {
-    echo "Cookies are enabled.";
-} else {
-    echo "Cookies are disabled.";
-}
-?>
-</div>
+    <section>
+        <h1>Content here</h1>
+    </section>
