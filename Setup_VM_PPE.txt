@@ -1,0 +1,30 @@
+Install VirtualBox + debian-8.1.0-amd64-netinst.iso
+VM Settings : Network / from NAT to Bridged Adapter
+
+apt-get update
+apt-get upgrade
+apt-get install ssh
+apt-get install apache2 apache2-doc
+apt-get install mysql-server php5-mysql
+mysql_secure_installation
+apt-get install php5-common libapache2-mod-php5 php5-cli
+systemctl restart apache2
+apt-get install mcrypt
+systemctl restart apache2
+apt-get install phpmyadmin					[apache2 & lighttpd]
+cd /var/www/html
+ln -s /usr/share/phpmyadmin
+
+ls -trail : Afin de voir si le lien symbolique a bien été créé
+
+apt-get install proftpd						[Depuis inetd]
+nano /etc/proftpd/proftpd.conf
+				DefaultRoot                     /var/www/html
+cd /var/www/
+chmod -R 777 html
+shutdown now -r
+
+/etc/init.d/
+	--> apache2 status
+	--> mysql status
+	--> proftpd status
