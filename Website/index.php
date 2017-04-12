@@ -8,7 +8,7 @@
         <title>Sleipnir equipments</title>
     </head>
 
-    <body>
+    <body class="in">
         <?php
             require_once('include/header/header.php');
         ?>

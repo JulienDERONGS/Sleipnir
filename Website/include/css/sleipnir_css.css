@@ -1,5 +1,6 @@
 body {
     margin: 0px;
+    padding: 0px !important;
 }
 
 .title {
@@ -11,6 +12,7 @@ body {
     height: 60px;
     position: fixed;
     top: 0;
+    left: 0;
     background: #265d73;
 }
 
@@ -39,7 +41,7 @@ body {
     color: #000;
 }
 
-section {
+.in {
     width: 100%;
     padding: 50px;
     background: #317d9b;

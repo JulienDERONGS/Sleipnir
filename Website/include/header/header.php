@@ -10,11 +10,7 @@
                 <a href="#">Shop</a>
             </li>
             <li>
-                <a href="#">Contact</a>
+                <a href="#">Log</a>
             </li>
         </ul>
     </nav>
-
-    <section>
-        <h1>Content here</h1>
-    </section>

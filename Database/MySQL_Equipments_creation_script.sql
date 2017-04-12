@@ -2,18 +2,8 @@
 #        Script MySQL.
 #------------------------------------------------------------
 
-
-#------------------------------------------------------------
-# Table: User
-#------------------------------------------------------------
-
-CREATE TABLE IF NOT EXISTS `User`(
-        user_email    Varchar (100) NOT NULL,
-        user_password Varchar (128) NOT NULL,
-        FK_userLevel_id  Int NOT NULL,
-        PRIMARY KEY (user_email)
-)ENGINE=InnoDB;
-
+CREATE database IF NOT EXISTS `sleipnir_equipments`;
+USE `sleipnir_equipments`;
 
 #------------------------------------------------------------
 # Table: Equipment
@@ -25,18 +15,6 @@ CREATE TABLE IF NOT EXISTS `Equipment`(
         FK_equipType_id Int NOT NULL,
         PRIMARY KEY (equip_id)
 )ENGINE=InnoDB;
-
-
-#------------------------------------------------------------
-# Table: UserLevel
-#------------------------------------------------------------
-
-CREATE TABLE IF NOT EXISTS `UserLevel`(
-        userLevel_id   int (11) Auto_increment NOT NULL,
-        userLevel_name Varchar (128) NOT NULL,
-        PRIMARY KEY (userLevel_id)
-)ENGINE=InnoDB;
-
 
 #------------------------------------------------------------
 # Table: EquipmentType
@@ -52,11 +30,22 @@ CREATE TABLE IF NOT EXISTS `EquipmentType`(
 # Foreign Key attribute adding
 #------------------------------------------------------------
 
-ALTER TABLE User ADD CONSTRAINT FK_User_userLevel_id FOREIGN KEY (FK_userLevel_id) REFERENCES UserLevel(userLevel_id);
 ALTER TABLE Equipment ADD CONSTRAINT FK_Equipment_equipType_id FOREIGN KEY (FK_equipType_id) REFERENCES EquipmentType(equipType_id);
 
 #------------------------------------------------------------
 # Initial CSV data import
 #------------------------------------------------------------
 
-LOAD DATA LOCAL INFILE '' INTO TABLE ``
+LOAD DATA LOCAL INFILE '/var/www/html/include/database/resources/csv/EquipmentType.csv'
+INTO TABLE EquipmentType
+CHARACTER SET utf8
+FIELDS TERMINATED BY ';'
+IGNORE 1 LINES
+(EquipType.equipType_name);
+
+LOAD DATA LOCAL INFILE '/var/www/html/include/database/resources/csv/Equipment.csv'
+INTO TABLE Equipment
+CHARACTER SET utf8
+FIELDS TERMINATED BY ';'
+IGNORE 1 LINES
+(Equip.equip_name);
