@@ -1,1 +1,5 @@
-admin@sleipnir.com, test
+user_email,user_password,FK_userLevel_id
+g_admin@sleipnir.com,1b4f0e9851971998e732078544c96b36c3d01cedf7caa332359d6f1d83567014,1
+a_admin@sleipnir.com,60303ae22b998861bce3b28f33eec1be758a213c86c93c076dbe9f558c11c752,2
+e_admin@sleipnir.com,fd61a03af4f77d870fc21e05e7e80678095c92d808cfb3b5c279ee04c74aca13,3
+user1@sleipnir.com,a4e624d686e03ed2767c0abd85c14426b0b1157d2ce81d27bb4fe4f6f01d688a,4

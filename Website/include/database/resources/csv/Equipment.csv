@@ -1,2 +1,7 @@
-asus_1
-asus_2
+equip_name,FK_equipType_id
+asus_pc_1,1
+asus_pc_2,1
+asus_laptop_1,2
+asus_laptop_2,2
+printer_1,3
+printer_2,3

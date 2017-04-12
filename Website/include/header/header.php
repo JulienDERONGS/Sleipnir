@@ -4,10 +4,7 @@
                 <a href="#">Home</a>
             </li>
             <li>
-                <a href="#">About</a>
-            </li>
-            <li>
-                <a href="#">Shop</a>
+                <a href="#">Home</a>
             </li>
             <li>
                 <a href="#">Log</a>

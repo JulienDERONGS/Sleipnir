@@ -1,0 +1,2 @@
+user_email;user_password;FK_userLevel_id
+admin@sleipnir.com;test;1
