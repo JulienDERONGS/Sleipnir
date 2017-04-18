@@ -8,34 +8,33 @@
 
         <title>Sleipnir equipments</title>
     </head>
-
+    
     <body class="content">
 
         <!-- Header : Sticky navigation bar -->
         <?php require_once('include/header/header.php'); ?>
         
-        <!-- Include the helper -->
-        <?php use HelperNamespace; ?>
-
         <!-- Sticky title -->
-        <div class="sticky_title">HOME</div>
-
+        <div class="sticky_title">LOG IN</div>
+        
         <!-- Page's content -->
         <div class="content_centered">
-            Welcome to the Sleipnir's equipments' managment page
+
+            <!-- Login form -->
+            <form action="login_process.php" method="post">
+                Enter your e-mail :
+                <br>
+                <input type="text" name ="email">
+                <br>
+                <br>
+                Enter your password :
+                <br>
+                <input type="text" name ="password">
+                <br>
+                <br>
+                <input type="submit" name="log_send" value="Log in">
+            </form>
         </div>
-
-
-
-
-        <div><?php
-            $helper = new HelperNamespace\Helper();
-            
-            $helper->setSQLHost("testHELPER OK !");
-            echo $helper->getSQLHost();
-            
-            
-        ?></div>
 
         </script>
     </body>

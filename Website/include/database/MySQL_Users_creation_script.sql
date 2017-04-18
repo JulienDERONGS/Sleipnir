@@ -39,13 +39,13 @@ ALTER TABLE User ADD CONSTRAINT FK_User_userLevel_id FOREIGN KEY (FK_userLevel_i
 LOAD DATA LOCAL INFILE '/var/www/html/include/database/resources/csv/UserLevel.csv'
 INTO TABLE UserLevel
 CHARACTER SET utf8
-FIELDS TERMINATED BY ';'
+FIELDS TERMINATED BY ','
 IGNORE 1 LINES
 (UserLevel.userLevel_id, UserLevel.userLevel_name);
 
 LOAD DATA LOCAL INFILE '/var/www/html/include/database/resources/csv/User.csv'
 INTO TABLE User
 CHARACTER SET utf8
-FIELDS TERMINATED BY ';'
+FIELDS TERMINATED BY ','
 IGNORE 1 LINES
 (User.user_email, User.user_password, User.FK_userLevel_id);

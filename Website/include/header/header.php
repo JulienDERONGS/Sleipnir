@@ -1,13 +1,16 @@
-    <nav class="sticky-nav">
+    <nav class="sticky_nav">
         <ul>
             <li>
-                <a href="#">Home</a>
+                <a href="index.php">Home</a>
             </li>
             <li>
-                <a href="#">Home</a>
+                <a href="#">Equipments' list</a>
             </li>
             <li>
-                <a href="#">Log</a>
+                <a href="login.php">Log in</a>
+            </li>
+            <li>
+                <a href="#">Log out</a>
             </li>
         </ul>
     </nav>
