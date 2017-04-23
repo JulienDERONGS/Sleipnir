@@ -1,0 +1,3 @@
+Network Settings: *Select NAT under "Attached to:" *"Adapter Type:" MT Desktop (only can be changed when vm power is shut off) *"Cable connected" box is checked
+
+System Settings: *"Network" box is checked in the "Boot Order:" listing.

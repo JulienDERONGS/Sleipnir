@@ -28,3 +28,8 @@ shutdown now -r
 	--> apache2 status
 	--> mysql status
 	--> proftpd status
+
+
+
+mysql access :
+	mysql -u root -p
