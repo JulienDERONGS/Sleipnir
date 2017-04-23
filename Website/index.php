@@ -2,20 +2,21 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <?php require_once('/var/www/html/include/php/helper.php'); ?>
+        
         <link rel="shortcut icon" href="favicon.ico"/>
         <link rel="stylesheet" type="text/css" href="include/css/sleipnir_css.css">
-
+        <?php require_once('include/php/helper.php'); ?>
         <title>Sleipnir equipments</title>
     </head>
 
     <body class="content">
-
         <!-- Header : Sticky navigation bar -->
         <?php require_once('include/header/header.php'); ?>
-        
+        <?php echo "pouet"; ?>
         <!-- Include the helper -->
-        <?php use HelperNamespace; ?>
+        <?php
+        use HelperClasses;
+        ?>
 
         <!-- Sticky title -->
         <div class="sticky_title">HOME</div>
@@ -25,18 +26,15 @@
             Welcome to the Sleipnir's equipments' managment page
         </div>
 
-
-
-
         <div><?php
-            $helper = new HelperNamespace\Helper();
+            //$helper = new HelperClasses\Database();
+            //$helper->set_sql_host("test");
+            //echo $helper->get_sql_host();
             
-            $helper->setSQLHost("testHELPER OK !");
-            echo $helper->getSQLHost();
-            
-            
+            echo HelperClasses/$var111;
         ?></div>
-
-        </script>
+        <div>
+        	<?php echo phpinfo(); ?>
+        </div>
     </body>
 </html>
