@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project name="C:\Users\Yuryo\Documents\Sleipnir\Website\PPE_Sleipnir.clpprj">
-	<settings><PM_URL><![CDATA[C:/Users/Yuryo/AppData/Roaming/ClPhpEd/Projects/]]></PM_URL><PM_HOME_URL><![CDATA[C:/Users/Yuryo/AppData/Roaming/ClPhpEd/Projects/]]></PM_HOME_URL><PM_LIBS><![CDATA[]]></PM_LIBS><PM_FTP_CONNECTION><![CDATA[]]></PM_FTP_CONNECTION><PM_FTP_DIR><![CDATA[]]></PM_FTP_DIR><PM_FTP_UPLOAD_ON_SAVE><![CDATA[INT:0]]></PM_FTP_UPLOAD_ON_SAVE></settings><removed value=";"/><added value=""/><lastopfiles>
+	<settings><PM_URL><![CDATA[C:/Users/Yuryo/Documents/Sleipnir/Website/]]></PM_URL><PM_HOME_URL><![CDATA[C:/Users/Yuryo/Documents/Sleipnir/Website/]]></PM_HOME_URL><PM_LIBS><![CDATA[]]></PM_LIBS><PM_FTP_CONNECTION><![CDATA[]]></PM_FTP_CONNECTION><PM_FTP_DIR><![CDATA[]]></PM_FTP_DIR><PM_FTP_UPLOAD_ON_SAVE><![CDATA[INT:0]]></PM_FTP_UPLOAD_ON_SAVE></settings><removed value=";"/><added value=""/><lastopfiles>
 		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\index.php"/>
 		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\include\css\sleipnir_css.css"/>
 		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\login.php"/>
 		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\login_process.php"/>
+		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\include\config\sleipnir_settings.ini"/>
 		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\include\header\header.php"/>
 		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\include\php\helper.php"/>
 	</lastopfiles>
 	<errors version="5.11">
+		<errfile name="C:\Users\Yuryo\Documents\Sleipnir\Website\include\php\helper.php">
+			<error val="0;7;1;7;102;1;"/>
+		</errfile>
 	</errors>
 	<cakedata>
 	</cakedata>
@@ -21,19 +25,19 @@
 	<todoblock>
 	</todoblock>
 	<filescache>
-		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\include\php\helper.php" crc="1492532291"/>
-		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\include\header\header.php" crc="1492168790"/>
-		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\include\database\sql_requests\MySQL_Users_creation_script.sql" crc="1491911894"/>
-		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\include\database\sql_requests\MySQL_Equipments_creation_script.sql" crc="1491911899"/>
-		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\include\database\JMerise\lisez moi.txt" crc="1491065616"/>
-		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\include\database\MySQL_Users_creation_script.sql" crc="1492084032"/>
-		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\include\database\MySQL_Equipments_creation_script.sql" crc="1492031807"/>
-		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\include\database\MySQL_creation_script.txt" crc="1491911646"/>
-		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\include\database\DOC EN LOCAL.txt" crc="1491808371"/>
-		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\include\css\sleipnir_css.css" crc="1492168790"/>
-		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\include\config\sleipnir_settings.ini" crc="1492265792"/>
-		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\login_process.php" crc="1492249036"/>
-		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\login.php" crc="1492249063"/>
-		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\index.php" crc="1492845078"/>
+		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\include\php\helper.php" crc="1492935699"/>
+		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\include\header\header.php" crc="1492935250"/>
+		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\include\database\sql_requests\MySQL_Users_creation_script.sql" crc="1492935250"/>
+		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\include\database\sql_requests\MySQL_Equipments_creation_script.sql" crc="1492935250"/>
+		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\include\database\JMerise\lisez moi.txt" crc="1492935250"/>
+		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\include\database\MySQL_Users_creation_script.sql" crc="1492935250"/>
+		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\include\database\MySQL_Equipments_creation_script.sql" crc="1492935250"/>
+		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\include\database\MySQL_creation_script.txt" crc="1492935250"/>
+		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\include\database\DOC EN LOCAL.txt" crc="1492935249"/>
+		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\include\css\sleipnir_css.css" crc="1492935249"/>
+		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\include\config\sleipnir_settings.ini" crc="1492935249"/>
+		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\login_process.php" crc="1492935250"/>
+		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\login.php" crc="1492935250"/>
+		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\index.php" crc="1492935407"/>
 	</filescache>
 </project>

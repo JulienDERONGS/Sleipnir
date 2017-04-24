@@ -1,1 +1,2 @@
-Add software
+Add software (?)
+Login form -> add error messages when returning to the login page, after bad form was sent
