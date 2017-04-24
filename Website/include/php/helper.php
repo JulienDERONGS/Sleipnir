@@ -49,18 +49,30 @@ class S_Database extends S_Helper
 {
     /* ---------- Variables ---------- */
     private			$_sql_host;
-    private     	$_sql_login;
+    private     	$_sql_user;
     private     	$_sql_password;
+    private			$_sql_db;
+    private			$_sql_table;
 
     /* ---------- Methods ---------- */
-    public			function	__construct()
+    public			function	__construct($db_type)
     {
         /// PARSER
         parent::__construct();
+		$this->_sql_host = $this->_sleipnir_settings[0]['sleipnir_sql_host'];
+        $this->_sql_user = $this->_sleipnir_settings[0]['sleipnir_sql_user'];
+        $this->_sql_password = $this->_sleipnir_settings[0]['sleipnir_sql_password'];
         
-        $this->_sql_host = "host";
-        $this->_sql_login = "login";
-        $this->_sql_password = "password";
+        if ($db_type == "user")
+        {
+	        $this->_sql_db = $this->_sleipnir_settings[0]['sleipnir_sql_users_db'];
+	        $this->_sql_table = $this->_sleipnir_settings[0]['sleipnir_sql_users_table'];
+		}
+		elseif ($db_type == "equipment")
+		{
+	        $this->_sql_db = $this->_sleipnir_settings[0]['sleipnir_equipments'];
+	        $this->_sql_table = $this->_sleipnir_settings[0]['Equipment'];
+		}
     }
 
     public      	function	__destruct(){}
@@ -69,10 +81,22 @@ class S_Database extends S_Helper
     {
         return $this->_sql_host;
     }
-
-    public   		function    set_sql_host($new_sql_host)
+    
+    public   		function    get_sql_user()
     {
-        $this->_sql_host = $new_sql_host;
+        return $this->_sql_user;
+    }
+    public   		function    get_sql_password()
+    {
+        return $this->_sql_password;
+    }
+    public   		function    get_sql_db()
+    {
+        return $this->_sql_db;
+    }
+    public   		function    get_sql_table()
+    {
+        return $this->_sql_table;
     }
 }
 ?>
