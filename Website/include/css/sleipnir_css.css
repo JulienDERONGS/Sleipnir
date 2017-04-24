@@ -38,11 +38,31 @@ body
 {
     padding: 10px 0;
     color: #fff;
-    /*background: #265d73;*/
     font-size: 1rem;
     text-decoration: none;
     font-weight: bold;
     transition: all 0.2s ease;
+}
+
+
+.logged_email
+{
+	position: fixed;
+	top: 12px;
+	right: 5px;
+    color: #000;
+    font-size: 1rem;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* - Hide the e-mail when the screen width is under 700px - */
+@media (max-width: 700px)
+{
+	.logged_email
+	{
+		display: none;
+	}
 }
 
 .sticky_nav ul li a:hover
@@ -102,4 +122,40 @@ body
 {
 	font-weight: bold;
 	color: green;
+}
+
+/* === Equipments' table === */
+.table
+{
+	background: #333;
+}
+
+.table ul
+{
+	float: left;
+	margin: 0;
+	padding: 0;
+	border: 1px solid #C9C9C9;
+}
+
+.table ul li
+{
+	list-style: none;
+	padding: 5px 10px;
+}
+	
+.table ul li.title
+{
+	font-weight: bold;
+	background: #333;
+	color: #fff;
+}
+
+.table ul li.even
+{
+	background: #fff;
+}
+.table ul li.odd
+{
+	background: #dadad8;
 }

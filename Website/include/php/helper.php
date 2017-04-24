@@ -57,7 +57,6 @@ class S_Database extends S_Helper
     /* ---------- Methods ---------- */
     public			function	__construct($db_type)
     {
-        /// PARSER
         parent::__construct();
 		$this->_sql_host = $this->_sleipnir_settings[0]['sleipnir_sql_host'];
         $this->_sql_user = $this->_sleipnir_settings[0]['sleipnir_sql_user'];
@@ -68,10 +67,10 @@ class S_Database extends S_Helper
 	        $this->_sql_db = $this->_sleipnir_settings[0]['sleipnir_sql_users_db'];
 	        $this->_sql_table = $this->_sleipnir_settings[0]['sleipnir_sql_users_table'];
 		}
-		elseif ($db_type == "equipment")
+		elseif ($db_type == "equip")
 		{
-	        $this->_sql_db = $this->_sleipnir_settings[0]['sleipnir_equipments'];
-	        $this->_sql_table = $this->_sleipnir_settings[0]['Equipment'];
+	        $this->_sql_db = $this->_sleipnir_settings[0]['sleipnir_sql_equipment_db'];
+	        $this->_sql_table = $this->_sleipnir_settings[0]['sleipnir_sql_equipment_table'];
 		}
     }
 

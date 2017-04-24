@@ -23,7 +23,11 @@
         <li>
             <a href=\"logout.php\">Log out</a>
         </li>
+        <div class=\"logged_email\">
+        	Logged in as <br>". $_SESSION['email']. "
+        </div>
         ";}
+        
         ?>
     </ul>
 </nav>
