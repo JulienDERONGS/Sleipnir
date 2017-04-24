@@ -38,25 +38,12 @@ catch (PDOException $e)
     echo 'Connection failed : ' . $e->getMessage();
 }
 
-/*$sql_query = "
-			SELECT EXISTS (
- 				SELECT *
- 				FROM " . $db_helper->get_sql_table() . "
- 				WHERE user_email = " . $email . "
- 				AND user_password = " . $password . "
-)";*/
-
-
 $sql_query = "SELECT *
  				FROM " . $db_helper->get_sql_table() . "
  				WHERE user_email = '". $email ."'
- 				AND user_password = '" . $password ."'"
- 				;
-
-//$sleipnir_user_db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
+ 				AND user_password = '" . $password ."'";
+ 				
 $result = $sleipnir_user_db->query($sql_query);
-
 $userExists=$result->rowCount();
 if ($userExists == 1)
 {

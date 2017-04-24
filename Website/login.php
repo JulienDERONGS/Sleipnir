@@ -30,7 +30,7 @@
                 <br>
                 Enter your password :
                 <br>
-                <input type="text" name="password">
+                <input type="password" name="password">
                 <br>
                 <br>
                 <input type="submit" name="submitted" value="Log in">
