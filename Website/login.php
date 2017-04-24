@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<?php session_start(); ?>
+<?php if(!isset($_SESSION)){session_start();}?>
+
 <html>
     <head>
         <meta charset="UTF-8">
@@ -7,7 +8,7 @@
         <link rel="shortcut icon" href="favicon.ico"/>
         <link rel="stylesheet" type="text/css" href="include/css/sleipnir_css.css">
 
-        <title>Sleipnir equipments</title>
+        <title>Sleipnir login page</title>
     </head>
     
     <body class="content">
@@ -38,9 +39,34 @@
         </div>
         <div>
         	<?php
+        	// If already logged in, redirect to the index page
+        	if ((isset($_SESSION['email'])) && (isset($_SESSION['password'])))
+        	{
+				header("location: index.php");
+			}
         	
-				var_dump($_POST);
-        		var_dump($_SESSION);
+        	// Login errors --> info message & session cleaning
+    		if (isset($_SESSION['login_redirect']))
+    		{
+    			// If tried to go directly on login_process.php without logging in first
+				if ($_SESSION['login_redirect'] == "direct_url")
+				{ echo "
+					<div class=\"login_error\">
+						<br>
+						Please log in from the above form.
+					</div>
+					";
+				}
+				elseif ($_SESSION['login_redirect'] == "wrong_email_password")
+				{ echo "
+					<div class=\"login_error\">
+						<br>
+						Wrong e-mail and/or password.
+					</div>
+					";
+				}
+				$_SESSION['login_redirect'] = "";
+			}
         	?>
         </div>
     </body>

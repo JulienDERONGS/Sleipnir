@@ -1,4 +1,6 @@
-<?php session_start(); ?>
+<!DOCTYPE html>
+<?php if(!isset($_SESSION)){session_start();}?>
+
 <html>
 <?php
 require_once('/var/www/html/include/php/helper.php');
@@ -14,7 +16,7 @@ if (!isset($_POST['submitted']))
 // Redirect in case of invalid e-mail formating
 elseif (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) == FALSE)
 {
-	$_SESSION['login_redirect'] = "email_or_password";
+	$_SESSION['login_redirect'] == "wrong_email_password";
 	header("location: login.php");
 }
 
@@ -44,16 +46,37 @@ $sql_query = "SELECT *
  				AND user_password = '" . $password ."'";
  				
 $result = $sleipnir_user_db->query($sql_query);
-$userExists=$result->rowCount();
-if ($userExists == 1)
+$userExists = ($result->rowCount() == 1);
+
+// E-mail and password correct --> session creation & redirection to the equipment page
+if ($userExists)
 {
-	//User Class go
-	echo "Success :)";
+	$_SESSION['email'] = $email;
+	$_SESSION['password'] = $password;
+	
+	// Send the user to the index with a successful login message
+	$_SESSION['logged_in'] = true;
+	header("location: login.php");
 }
-
-//$_SESSION['sessionid'] = session_id();
-
-
+else // Redirection to the index with a message, if entered wrong credentials
+{
+	$_SESSION['login_redirect'] = "wrong_email_password";
+	header("location: login.php");
+}
 
 ?>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

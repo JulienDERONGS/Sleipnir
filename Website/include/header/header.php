@@ -1,16 +1,29 @@
+<?php if(!isset($_SESSION)){session_start();}?>
 <nav class="sticky_nav">
     <ul>
         <li>
             <a href="index.php">Home</a>
         </li>
         <li>
-            <a href="#">Equipments' list</a>
+            <a href="equipments.php">Equipments</a>
         </li>
+        <?php
+            // Only visible if not yet logged in
+        	if (!(isset($_SESSION['email'])) && !(isset($_SESSION['password'])))
+        	{ echo "
         <li>
-            <a href="login.php">Log in</a>
+            <a href=\"login.php\">Log in</a>
         </li>
+        	";}
+        ?>
+        <?php
+            // Only visible if already logged in
+        	if ((isset($_SESSION['email'])) && (isset($_SESSION['password'])))
+        	{ echo "
         <li>
-            <a href="#">Log out</a>
+            <a href=\"logout.php\">Log out</a>
         </li>
+        ";}
+        ?>
     </ul>
 </nav>

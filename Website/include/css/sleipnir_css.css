@@ -1,14 +1,17 @@
-body {
+body
+{
     margin: 0px;
     padding: 0px !important;
 }
 
-.title {
+.title
+{
     font-size: 50px;
 }
 
 /* === Sticky navigation bar === */
-.sticky_nav {
+.sticky_nav
+{
     width: 100%;
     height: 60px;
     position: fixed;
@@ -17,19 +20,22 @@ body {
     background: #265d73 !important;
 }
 
-.sticky_nav ul {
+.sticky_nav ul
+{
     padding: 20px;
     margin: 0 auto;
     list-style: none;
     text-align: center;
 }
 
-.sticky_nav ul li {
+.sticky_nav ul li
+{
     display: inline-block;
     margin: 0 10px;
 }
     
-.sticky_nav ul li a {
+.sticky_nav ul li a
+{
     padding: 10px 0;
     color: #fff;
     /*background: #265d73;*/
@@ -39,12 +45,14 @@ body {
     transition: all 0.2s ease;
 }
 
-.sticky_nav ul li a:hover {
+.sticky_nav ul li a:hover
+{
     color: #000000;
 }
 
 /* === Sticky title, under the navigation bar === */
-.sticky_title {
+.sticky_title
+{
     width: 100%;
     position: fixed;
     top: 60px;
@@ -63,7 +71,8 @@ body {
 /* === Contents === */
 
 /* - Normal - */
-.content {
+.content
+{
     position: relative;
     width: 100%;
     margin-top: 130px;
@@ -72,10 +81,25 @@ body {
 }
 
 /* - Centered - */
-.content_centered {
+.content_centered
+{
     position: relative;
     width: 100%;
     margin-top: 130px;
     background: #96d4dd;
     text-align: center;
+}
+
+/* - Login errors - */
+.login_error
+{
+	font-weight: bold;
+	color: red;
+}
+
+/* - Log in or out info messages - */
+.logged_in_out
+{
+	font-weight: bold;
+	color: green;
 }

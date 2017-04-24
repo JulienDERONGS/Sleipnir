@@ -1,13 +1,18 @@
-<?php //COMMENTS
-// On démarre la session
-session_start ();
+<!DOCTYPE html>
+<?php if(!isset($_SESSION)){session_start();}
 
-// On détruit les variables de notre session
-session_unset ();
+// Force destroy the session (up to 20x)
+for ($i=0; $i<1; $i++)
+{
+	if (isset($_SESSION))
+	{
+		session_unset();
+		session_destroy();
+	}
+}
 
-// On détruit notre session
-session_destroy ();
-
-// On redirige le visiteur vers la page d'accueil
-header ('location: index.htm');
+// Launch a clean session and send the user to the index with a successful logout message
+if(!isset($_SESSION)){session_start();}
+$_SESSION['logged_out'] = true;
+header('location: /include/misc/redir.php');
 ?>
