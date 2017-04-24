@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php session_start(); ?>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -13,7 +14,7 @@
 
         <!-- Header : Sticky navigation bar -->
         <?php require_once('include/header/header.php'); ?>
-        
+		
         <!-- Sticky title -->
         <div class="sticky_title">LOG IN</div>
         
@@ -24,18 +25,23 @@
             <form action="login_process.php" method="post">
                 Enter your e-mail :
                 <br>
-                <input type="text" name ="email">
+                <input type="text" name="email">
                 <br>
                 <br>
                 Enter your password :
                 <br>
-                <input type="text" name ="password">
+                <input type="text" name="password">
                 <br>
                 <br>
-                <input type="submit" name="log_send" value="Log in">
+                <input type="submit" name="submitted" value="Log in">
             </form>
         </div>
-
-        </script>
+        <div>
+        	<?php
+        	
+				var_dump($_POST);
+        		var_dump($_SESSION);
+        	?>
+        </div>
     </body>
 </html>

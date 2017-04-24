@@ -1,80 +1,102 @@
 <?php
-namespace HelperClasses;
     /* ========== PHP Helper ========== */
             /*
             - directories' & files' paths
             - utility functions'
             */
-$var111 = 12;
-class Helper
+            
+class S_Helper
 {
     /* ---------- Variables ---------- */
-    private     $root_path;
-    private     $sleipnir_ini_path;
-    protected   $sleipnir_settings = array();
+    protected		$_root_path = "";
+    protected		$_sleipnir_ini_path = "";
+    protected		$_sleipnir_settings = array();
 
-    public      function __construct ()
+    /* ---------- Methods ---------- */
+    public      	function __construct()
     {
         // Get paths
-        $this->$root_path = "/var/www/html";
-        $this->$sleipnir_ini_path = $root_dir . "/include/config/sleipnir_settings.ini";
+        $this->_root_path = "/var/www/html";
+        $this->_sleipnir_ini_path = $this->_root_path . "/include/config/sleipnir_settings.ini";
 
         // Parse the sleipnir_settings.ini into a protected array
-        $sleipnir_settings[] = parse_ini_file($sleipnir_settings);
+        $this->_sleipnir_settings[] = parse_ini_file($this->_sleipnir_ini_path);
     }
 
-    /* ---------- Methods ---------- */
-    public      function    __destruct (){}
+    public      	function    __destruct(){}
 }
 
-class User extends Helper
+class S_User extends S_Helper
 {
     /* ---------- Variables ---------- */
-    private     $email;
-    private     $password;
-    private     $level;
+    private     	$_email;
+    private     	$_password;
+    private     	$_level;
 
     /* ---------- Methods ---------- */
-    public      function __construct ($def_email, $def_password, $def_level)
+    public      	function	__construct($email, $password, $level)
     {
-        $email = $def_email;
-        $password = $def_password;
-        $level = $def_level;
-        echo "User created with consulting rights (code only)";
+    	parent::__construct();
+        $this->_email = $email;
+        $this->_password = $password;
+        $this->_level = $level;
     }
 
-    public      function __destruct (){}
+    public      	function 	__destruct(){}
 }
 
-class Database extends Helper
+class S_Database extends S_Helper
 {
     /* ---------- Variables ---------- */
-    private     $slq_host;
-    private     $sql_login;
-    private     $sql_password;
+    private			$_sql_host;
+    private     	$_sql_user;
+    private     	$_sql_password;
+    private			$_sql_db;
+    private			$_sql_table;
 
     /* ---------- Methods ---------- */
-    public      function __construct ()
+    public			function	__construct($db_type)
     {
         /// PARSER
-        $this->$slq_host = "host";
-        $this->$sql_login = "login";
-        $this->$sql_password = "password";
-        echo "Generic constructor used";
+        parent::__construct();
+		$this->_sql_host = $this->_sleipnir_settings[0]['sleipnir_sql_host'];
+        $this->_sql_user = $this->_sleipnir_settings[0]['sleipnir_sql_user'];
+        $this->_sql_password = $this->_sleipnir_settings[0]['sleipnir_sql_password'];
+        
+        if ($db_type == "user")
+        {
+	        $this->_sql_db = $this->_sleipnir_settings[0]['sleipnir_sql_users_db'];
+	        $this->_sql_table = $this->_sleipnir_settings[0]['sleipnir_sql_users_table'];
+		}
+		elseif ($db_type == "equipment")
+		{
+	        $this->_sql_db = $this->_sleipnir_settings[0]['sleipnir_equipments'];
+	        $this->_sql_table = $this->_sleipnir_settings[0]['Equipment'];
+		}
     }
 
-    public      function __destruct (){}
+    public      	function	__destruct(){}
     
-    protected   function    get_sql_host()
+    public   		function    get_sql_host()
     {
-        return $slq_host;
+        return $this->_sql_host;
     }
-
-    protected   function    set_sql_host($new_sql_host)
+    
+    public   		function    get_sql_user()
     {
-        $sql_host = $new_sql_host;
+        return $this->_sql_user;
     }
-
-    //$test[] = parse_ini_file($file);
+    public   		function    get_sql_password()
+    {
+        return $this->_sql_password;
+    }
+    public   		function    get_sql_db()
+    {
+        return $this->_sql_db;
+    }
+    public   		function    get_sql_table()
+    {
+        return $this->_sql_table;
+    }
 }
 ?>

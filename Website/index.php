@@ -12,11 +12,6 @@
     <body class="content">
         <!-- Header : Sticky navigation bar -->
         <?php require_once('include/header/header.php'); ?>
-        <?php echo "pouet"; ?>
-        <!-- Include the helper -->
-        <?php
-        use HelperClasses;
-        ?>
 
         <!-- Sticky title -->
         <div class="sticky_title">HOME</div>
@@ -26,15 +21,12 @@
             Welcome to the Sleipnir's equipments' managment page
         </div>
 
-        <div><?php
-            //$helper = new HelperClasses\Database();
-            //$helper->set_sql_host("test");
-            //echo $helper->get_sql_host();
-            
-            echo HelperClasses/$var111;
-        ?></div>
         <div>
-        	<?php echo phpinfo(); ?>
+        <?php
+            $newDB = new S_Database();
+            $hp = new S_Helper();
+            $usr = new S_User("a@a.a", "psw", "0");
+        ?>
         </div>
     </body>
 </html>

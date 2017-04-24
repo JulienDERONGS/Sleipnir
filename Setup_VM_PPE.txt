@@ -29,7 +29,16 @@ shutdown now -r
 	--> mysql status
 	--> proftpd status
 
+apt-get install emacs (menu F10)
+for auto-refresh : add to "~/.emacs" : (global-auto-revert-mode 1)
 
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 mysql access :
 	mysql -u root -p
+
+php.ini : /etc/php/apache2
+
+apt-get install synaptic (gestion de packages graphique)
