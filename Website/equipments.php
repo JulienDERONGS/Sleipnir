@@ -47,39 +47,60 @@
 		// Equiments database helper, linked to the database configuration file
 		$db_equip_helper = new S_Database("equip");
 		
-		$sql_host = 'mysql:dbname=' . $db_equip_helper->get_sql_db() . ';host=' . $db_equip_helper->get_sql_host();
+		// Setting up the database query
+		$sql_host = 'mysql:dbname=' . $db_equip_helper->get_sql_db() . ';host=' . $db_equip_helper->get_sql_host(). ";charset=utf8;port=3306";
 		$sql_user = $db_equip_helper->get_sql_user();
 		$sql_password = $db_equip_helper->get_sql_password();
 		
 		try
 		{
-    		$sleipnir_user_db = new PDO($sql_host, $sql_user, $sql_password);
+    		$sleipnir_equip_db = new PDO($sql_host, $sql_user, $sql_password);
 		}
 		catch (PDOException $e)
 		{
 		    echo 'Connection failed : ' . $e->getMessage();
 		}
-
-		$sql_query = "SELECT *
-		 				FROM " . $db_equip_helper->get_sql_table();
+		
+		// Query : get all equipments, their ID and type
+		$sql_query = "SELECT eq.equip_id, eq.equip_name, eqt.equipType_name
+		 				FROM Equipment eq, EquipmentType eqt
+		 				WHERE eq.FK_equipType_id = eqt.equipType_id
+		 				";
 		 				
-		$results = $sleipnir_user_db->prepare($sql_query);
-		$results->execute();
-		$resultArray = $results->fetchAll(PDO::FETCH_COLUMN, 1);
-		$results->closeCursor();
+		$result = $sleipnir_equip_db->prepare($sql_query);
+		$result->execute();
+		$resultArray = $result->fetchAll(PDO::FETCH_GROUP|PDO::FETCH_ASSOC);
+		$resultArray = array_map('reset', $resultArray);
+		$result->closeCursor();
+		
+		//remove
+		foreach ($resultArray as $id => $array2)
+		{
+			echo("ID : ". $id ."<p>");
+			foreach($array2 as $key2 => $value)
+			{
+				echo("Value : ". $value ."<p><p><p>");
+			}
+		}
+		unset($value);
+		unset($array2);
+		
+		// Putting the results into a multi-dimensionnal array
+		$equipmentsArray = array(array());
+		
+		foreach ($resultArray as $id => $array2)
+		{
+			foreach($array2 as $key2 => $value)
+			{
+				$equipmentsArray[$id][($key2)%2] = $value;
+			}
+		}
+		unset($value);
+		unset($array2);
 		
 		echo "<pre>";
-		print_r($resultArray);
+		print_r($equipmentsArray);
 		echo "</pre>";
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		
 		
 		

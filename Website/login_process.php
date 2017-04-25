@@ -27,7 +27,7 @@ $password = hash("sha256", $_POST['password']);
 // Users database helper, linked to the database configuration file
 $db_helper = new S_Database("user");
 
-$sql_host = 'mysql:dbname=' . $db_helper->get_sql_db() . ';host=' . $db_helper->get_sql_host();
+$sql_host = 'mysql:dbname=' . $db_helper->get_sql_db() . ';host=' . $db_helper->get_sql_host(). ";charset=utf8;port=3306";
 $sql_user = $db_helper->get_sql_user();
 $sql_password = $db_helper->get_sql_password();
 
