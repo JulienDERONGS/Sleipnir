@@ -61,7 +61,94 @@
 		    echo 'Connection failed : ' . $e->getMessage();
 		}
 		
-		// Query : get all equipments, their ID and type
+		// Query : get all equipments, their ID and their type
+		$sql_query = "SELECT eq.equip_id, eq.equip_name, eqt.equipType_id, eqt.equipType_name
+		 				FROM Equipment eq, EquipmentType eqt
+		 				WHERE eq.FK_equipType_id = eqt.equipType_id
+		 				";
+		 				
+		$result = $sleipnir_equip_db->prepare($sql_query);
+		$result->execute();
+		
+		// Remplissage des données dans un tableau
+		$equipments = array(array());
+		
+		while ($row = $result->fetch())
+		{
+			$id = $row['equip_id'];
+			$en = $row['equip_name'];
+			$tid = $row['equipType_id'];
+			$et = $row['equipType_name'];
+			
+			$equipments[$id][0] = $id;
+			$equipments[$id][1] = $en;
+			$equipments[$id][2] = $tid;
+			$equipments[$id][3] = $et;
+		}?>
+		
+		<!-- Table creation -->
+		<div class=table>
+			<?php
+			$i = 1;
+			$j = 0;
+			
+			while (isset($equipments[$i][$j]))
+			{
+				// Title selection
+				echo ("<ul><li class='title'>");
+				switch ($j) {
+				    case 0:
+				        echo "ID";
+				        break;
+				    case 1:
+				        echo "Name";
+				        break;
+				    case 3:
+				        echo "Type";
+				        break;
+				    default:
+				    	echo "ERROR";
+				    	break;
+				}
+				echo ("</li>");
+				while (isset($equipments[$i][$j]))
+				{
+					// Alternate between CSS classes
+					echo ("<li class='". (($i%2==1)?"even":"odd") ."'>". $equipments[$i][$j]);
+					$i++;
+				}
+				echo "</ul>";
+				$i = 1;
+				if (++$j == 2) // Avoiding the type ID
+				{
+					$j++;
+				}
+				
+			}
+			
+			
+			
+			
+			?>
+		</div>
+		
+		
+		
+		<!--
+		<div class="table">
+		<ul>
+			<li class="title">Name</li>
+			<li class="even">Sachin</li>
+			<li class="odd">Gilchrist</li>
+			<li class="even">Dhoni</li>
+			<li class="odd">Ponting</li>
+		</ul>
+		<ul>-->
+		
+		
+		<?php
+		/*
+		// Query : get all equipments, their ID and their type
 		$sql_query = "SELECT eq.equip_id, eq.equip_name, eqt.equipType_name
 		 				FROM Equipment eq, EquipmentType eqt
 		 				WHERE eq.FK_equipType_id = eqt.equipType_id
@@ -69,38 +156,44 @@
 		 				
 		$result = $sleipnir_equip_db->prepare($sql_query);
 		$result->execute();
-		$resultArray = $result->fetchAll(PDO::FETCH_GROUP|PDO::FETCH_ASSOC);
-		$resultArray = array_map('reset', $resultArray);
-		$result->closeCursor();
 		
-		//remove
-		foreach ($resultArray as $id => $array2)
+		while ($row = $result->fetch())
 		{
-			echo("ID : ". $id ."<p>");
-			foreach($array2 as $key2 => $value)
-			{
-				echo("Value : ". $value ."<p><p><p>");
-			}
+			$id = $row['equip_id'];
+			$en = $row['equip_name'];
+			$et = $row['equipType_name'];
+			
+			// Remplissage des données dans un tableau
+			$equipments = array(array());
+				$equipments[$id][0] = $id;
+				//echo "<p>".$equipments[$id][0]." ";
+				$equipments[$id][1] = $en;
+				//echo $equipments[$id][1]." ";
+				$equipments[$id][2] = $et;
+				//echo $equipments[$id][2]." ";
 		}
-		unset($value);
-		unset($array2);
+		*/
 		
-		// Putting the results into a multi-dimensionnal array
-		$equipmentsArray = array(array());
 		
-		foreach ($resultArray as $id => $array2)
-		{
-			foreach($array2 as $key2 => $value)
-			{
-				$equipmentsArray[$id][($key2)%2] = $value;
-			}
-		}
-		unset($value);
-		unset($array2);
 		
-		echo "<pre>";
-		print_r($equipmentsArray);
-		echo "</pre>";
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		

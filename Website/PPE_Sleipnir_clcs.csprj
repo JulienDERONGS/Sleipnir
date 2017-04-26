@@ -1,10 +1,10 @@
 <codestructure version="5.11">
 <phptree>
-<treenode node="/var/www/html/include/php/helper.php;PHP:PHP Include;C:\Users\Yuryo\Documents\Sleipnir\Website\login.php;f28;6;64;6;;C:\Users\Yuryo\Documents\Sleipnir\Website\login_process.php;f14;5;50;5;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+<treenode node="/var/www/html/include/php/helper.php;PHP:PHP Include;C:\Users\Yuryo\Documents\Sleipnir\Website\login_process.php;f14;5;50;5;;C:\Users\Yuryo\Documents\Sleipnir\Website\login.php;f28;6;64;6;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 </treenode>
-<treenode node="include/header/header.php;PHP:PHP Include;C:\Users\Yuryo\Documents\Sleipnir\Website\login.php;f28;16;53;16;;C:\Users\Yuryo\Documents\Sleipnir\Website\index.php;f28;14;53;14;;C:\Users\Yuryo\Documents\Sleipnir\Website\Codelobster0.php;f28;15;53;15;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+<treenode node="include/header/header.php;PHP:PHP Include;C:\Users\Yuryo\Documents\Sleipnir\Website\Codelobster0.php;f28;15;53;15;;C:\Users\Yuryo\Documents\Sleipnir\Website\login.php;f28;16;53;16;;C:\Users\Yuryo\Documents\Sleipnir\Website\index.php;f28;14;53;14;;C:\Users\Yuryo\Documents\Sleipnir\Website\equipments.php;f28;15;53;15;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 </treenode>
-<treenode node="include/php/helper.php;PHP:PHP Include;C:\Users\Yuryo\Documents\Sleipnir\Website\index.php;f28;8;50;8;;C:\Users\Yuryo\Documents\Sleipnir\Website\Codelobster0.php;f28;9;50;9;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+<treenode node="include/php/helper.php;PHP:PHP Include;C:\Users\Yuryo\Documents\Sleipnir\Website\Codelobster0.php;f28;9;50;9;;C:\Users\Yuryo\Documents\Sleipnir\Website\index.php;f28;8;50;8;;C:\Users\Yuryo\Documents\Sleipnir\Website\equipments.php;f28;9;50;9;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 </treenode>
 <treenode node="S_Database;PHP:Class Name;C:\Users\Yuryo\Documents\Sleipnir\Website\include\php\helper.php;f0;47;1;99;;;;vpos;;vS_Helper;;c;;r;;d0,48;;b0,0;;m">
 <treenode node="__construct;PHP:Function Name;C:\Users\Yuryo\Documents\Sleipnir\Website\include\php\helper.php;f13;57;5;74;;;;vpos;;v;;r;;d4,58;;b1,0;;mdb_type;;p">
