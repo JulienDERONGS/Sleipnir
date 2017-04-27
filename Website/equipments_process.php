@@ -47,11 +47,53 @@
 		    echo 'Connection failed : ' . $e->getMessage();
 		}
 		
-		// Add form
+		
+		
+		
+		
+		
+		
+		// New equipment request treatment (add part 2)
+		if ((isset($_POST['new_equip_submit'])) && (isset($_POST['new_equip_name'])) && (isset($_POST['new_equip_type'])) )
+		{
+			echo ($_POST['new_equip_submit']." ".$_POST['new_equip_name']." ".$_POST['new_equip_type']);
+			// Create the equipment adding request
+			$sql_add = "INSERT INTO Equipment (equip_name, FK_equipType_id)
+						VALUES (". superHtmlEntities($_POST['new_equip_name']) .",
+						(SELECT  et.equipType_id
+						FROM    EquipmentType et
+						WHERE   et.equipType_name = ". superHtmlEntities($_POST['new_equip_type']) ."));";
+			
+			// Execute the query
+			$result = $sleipnir_equip_db->prepare($sql_add);
+			echo $result->execute();
+			$result->closeCursor();
+		}
+		
+		// New equipment request form (add part 1)
 		if ((isset($_POST['add'])) || (isset($_POST['new_equip_submit'])))
 		{
+			// Get types values
+			$sql_query = "SELECT eqt.equipType_name
+			 				FROM EquipmentType eqt
+			 				";
+			 				
+			$result = $sleipnir_equip_db->prepare($sql_query);
+			$result->execute();
+			
+			// Inserting data into an array
+			$types = array();
+			
+			while ($row = $result->fetch())
+			{
+				$et = $row['equipType_name'];
+				$types[] = $et;
+			}
+			$result->closeCursor();
+			
+			// New equipment form
 			echo ("
-			<form action='#' method='post'>
+			<form action='#' method='post' id='new_equip'>
 				<div class='table'>
 					<ul>
 						<li class='title'>Name</li>
@@ -60,19 +102,17 @@
 						</li>
 						<li class='title'>Type</li>
 						<li class='odd'>
-							<input type='input' name='new_equip_type' value=''>
+							<select name='new_equip_type' form='new_equip'>
+								".getOptionsFromArray($types)."
+							</select>
 						</li>
 						<li class='even'>
-							<input type='hidden' name='new_equip_process' value='added'>
 							<input type='submit' name='new_equip_submit' value='Add new equipment'>
 						</li>
 					</ul>
 				</div>
 			</form>
 			");
-			
-			
-			
 			
 			
 			
@@ -107,7 +147,7 @@
 			$result = $sleipnir_equip_db->prepare($sql_query);
 			$result->execute();
 			
-			// Remplissage des données dans un tableau
+			// Inserting data into an array
 			$equipments = array();
 			
 			while ($row = $result->fetch())
@@ -120,6 +160,7 @@
 			}
 			
 			print_r($equipments);
+			$result->closeCursor();
 		}
 		
 		

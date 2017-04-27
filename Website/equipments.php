@@ -73,7 +73,7 @@
 		$result = $sleipnir_equip_db->prepare($sql_query);
 		$result->execute();
 		
-		// Remplissage des données dans un tableau
+		// Inserting data into an array
 		$equipments = array(array());
 		
 		while ($row = $result->fetch())
@@ -168,7 +168,7 @@
 			$en = $row['equip_name'];
 			$et = $row['equipType_name'];
 			
-			// Remplissage des données dans un tableau
+			// Inserting data into an array
 			$equipments = array(array());
 				$equipments[$id][0] = $id;
 				//echo "<p>".$equipments[$id][0]." ";
