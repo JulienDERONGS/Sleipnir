@@ -110,15 +110,15 @@ body
     text-align: center;
 }
 
-/* - Login errors - */
-.login_error
+/* - Login/Equipment edition failure - */
+.failure
 {
 	font-weight: bold;
 	color: red;
 }
 
-/* - Log in or out info messages - */
-.logged_in_out
+/* - Login/Equipment edition successs - */
+.success
 {
 	font-weight: bold;
 	color: green;

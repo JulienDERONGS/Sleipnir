@@ -26,7 +26,6 @@
 		// Redirect if not coming from the form
 		if ((!isset($_POST['add'])) && (!isset($_POST['edit'])) && (!isset($_POST['delete'])) && (!isset($_POST['new_equip_submit'])))
 		{
-			$_SESSION['equip_redirect'] = "direct_url";
 			header("location: equipments.php");
 		}
 		
@@ -107,30 +106,14 @@
 		        
 					// Execute the query
 					$result = $sleipnir_equip_db->prepare($sql_add);
-					echo $result->execute();
+					$addInfo = false;
+					if ($result->execute())
+					{
+						echo "<p><div class='success'>Equipment successfully added.<div>";
+					}
 					$result->closeCursor();
-					
-					echo $sql_add;
 				}
 			}
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
 		}
 		else
 		{
@@ -160,8 +143,6 @@
 			print_r($equipments);
 			$result->closeCursor();
 		}
-		
-		
 		
 		
 		
