@@ -129,21 +129,18 @@
 					echo ("</li>");
 					
 					$prevID = -1;
-					while ($prevID <= $lastID[0])
+					while ($prevID < $lastID[0])
 					{
 						$prevNotSet = true;
 						while (isset($equipments[$i][$j]))
 						{
 							// Alternate between CSS classes
 							echo ("<li class='". (($i%2==1)?"even":"odd") ."'>". $equipments[$i][$j]) ."</li>";
-							$i++;
 							$prevID = $equipments[$i][0];
 							$prevNotSet = false;
-						}
-						if ($prevNotSet)
-						{
 							$i++;
 						}
+						if ($prevNotSet) {$i++;}
 					}
 					
 					echo "</ul>";
