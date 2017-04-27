@@ -49,27 +49,6 @@
 		
 		
 		
-		
-		
-		
-		
-		// New equipment request treatment (add part 2)
-		if ((isset($_POST['new_equip_submit'])) && (isset($_POST['new_equip_name'])) && (isset($_POST['new_equip_type'])) )
-		{
-			echo ($_POST['new_equip_submit']." ".$_POST['new_equip_name']." ".$_POST['new_equip_type']);
-			// Create the equipment adding request
-			$sql_add = "INSERT INTO Equipment (equip_name, FK_equipType_id)
-						VALUES (". superHtmlEntities($_POST['new_equip_name']) .",
-						(SELECT  et.equipType_id
-						FROM    EquipmentType et
-						WHERE   et.equipType_name = ". superHtmlEntities($_POST['new_equip_type']) ."));";
-			
-			// Execute the query
-			$result = $sleipnir_equip_db->prepare($sql_add);
-			echo $result->execute();
-			$result->closeCursor();
-		}
-		
 		// New equipment request form (add part 1)
 		if ((isset($_POST['add'])) || (isset($_POST['new_equip_submit'])))
 		{
@@ -114,7 +93,26 @@
 			</form>
 			");
 			
-			
+			// New equipment request treatment (add part 2)
+			if ((isset($_POST['new_equip_submit'])) && (isset($_POST['new_equip_name'])) && (isset($_POST['new_equip_type'])) )
+			{
+				if ($_POST['new_equip_name'] != "")
+				{
+					$sql_add = "INSERT INTO `Equipment` (FK_equipType_id, equip_name)
+								VALUES ((
+								SELECT(equipType_id)
+								FROM EquipmentType
+								WHERE (equipType_name LIKE '". superHtmlEntities($_POST['new_equip_type']) ."'))
+		        				, '". superHtmlEntities($_POST['new_equip_name']) ."');";
+		        
+					// Execute the query
+					$result = $sleipnir_equip_db->prepare($sql_add);
+					echo $result->execute();
+					$result->closeCursor();
+					
+					echo $sql_add;
+				}
+			}
 			
 			
 			

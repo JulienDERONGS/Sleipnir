@@ -87,7 +87,8 @@
 			$equipments[$id][1] = $en;
 			$equipments[$id][2] = $tid;
 			$equipments[$id][3] = $et;
-		}?>
+		} echo "<pre>";print_r($equipments);echo "</pre>"
+		?>
 		
 		<!-- 'Add equipment' -->
 		<form action='equipments_process.php' method='post' style='padding-top: 20px !important; padding-bottom: 30px !important;'>
@@ -101,7 +102,65 @@
 				$i = 1;
 				$j = 0;
 				
+				// Remember the equipments' list's last ID
+				end($equipments);
+				$lastID = current($equipments);
+				reset($equipments);
+				
 				while (isset($equipments[$i][$j]))
+				{
+					// Title selection
+					echo ("<ul><li class='title'>");
+					switch ($j)
+					{
+					    case 0:
+					        echo "ID";
+					        break;
+					    case 1:
+					        echo "Name";
+					        break;
+					    case 3:
+					        echo "Type";
+					        break;
+					    default:
+					    	echo "ERROR";
+					    	break;
+					}
+					echo ("</li>");
+					
+					$prevID = -1;
+					while ($prevID <= $lastID[0])
+					{
+						$prevNotSet = true;
+						while (isset($equipments[$i][$j]))
+						{
+							// Alternate between CSS classes
+							echo ("<li class='". (($i%2==1)?"even":"odd") ."'>". $equipments[$i][$j]) ."</li>";
+							$i++;
+							$prevID = $equipments[$i][0];
+							$prevNotSet = false;
+						}
+						if ($prevNotSet)
+						{
+							$i++;
+						}
+					}
+					
+					echo "</ul>";
+					$maxRows = $i-1;
+					$i = 1;
+					if (++$j == 2) // Avoiding the type ID
+					{
+						$j++;
+					}
+				}
+				
+				
+				
+				
+				
+				
+				/*while (isset($equipments[$i][$j]))
 				{
 					// Title selection
 					echo ("<ul><li class='title'>");
@@ -120,6 +179,7 @@
 					    	break;
 					}
 					echo ("</li>");
+					
 					while (isset($equipments[$i][$j]))
 					{
 						// Alternate between CSS classes
@@ -133,7 +193,8 @@
 					{
 						$j++;
 					}
-				}
+					
+				}*/
 				
 				// Options list
 				echo ("<ul><li class='title'>Options</li>");
