@@ -16,7 +16,7 @@
         <?php require_once('include/header/header.php'); ?>
 
         <!-- Sticky title -->
-        <div class="sticky_title">EQUIPMENTS' MANAGMENT</div>
+        <div class="sticky_title">EQUIPMENTS LIST</div>
 
         <!-- Equipments' table' -->
         <!--<div class="table">
@@ -44,6 +44,9 @@
 		</div>-->
 		
 		<?php
+		// If coming from equipments_process.php, reset the cookie
+		unset($_SESSION['equip_redirect']);
+		
 		// Equiments database helper, linked to the database configuration file
 		$db_equip_helper = new S_Database("equip");
 		
@@ -86,66 +89,68 @@
 			$equipments[$id][3] = $et;
 		}?>
 		
+		<!-- 'Add equipment' -->
+		<form action='equipments_process.php' method='post' style='padding-top: 20px !important; padding-bottom: 30px !important;'>
+            <input type='submit' name='add' value='Add an equipment'>
+        </form>
+		
 		<!-- Table creation -->
-		<div class=table>
-			<?php
-			$i = 1;
-			$j = 0;
-			
-			while (isset($equipments[$i][$j]))
-			{
-				// Title selection
-				echo ("<ul><li class='title'>");
-				switch ($j) {
-				    case 0:
-				        echo "ID";
-				        break;
-				    case 1:
-				        echo "Name";
-				        break;
-				    case 3:
-				        echo "Type";
-				        break;
-				    default:
-				    	echo "ERROR";
-				    	break;
-				}
-				echo ("</li>");
+		<div class="center_wrap">
+			<div class=table>
+				<?php
+				$i = 1;
+				$j = 0;
+				
 				while (isset($equipments[$i][$j]))
 				{
-					// Alternate between CSS classes
-					echo ("<li class='". (($i%2==1)?"even":"odd") ."'>". $equipments[$i][$j]);
-					$i++;
-				}
-				echo "</ul>";
-				$i = 1;
-				if (++$j == 2) // Avoiding the type ID
-				{
-					$j++;
+					// Title selection
+					echo ("<ul><li class='title'>");
+					switch ($j) {
+					    case 0:
+					        echo "ID";
+					        break;
+					    case 1:
+					        echo "Name";
+					        break;
+					    case 3:
+					        echo "Type";
+					        break;
+					    default:
+					    	echo "ERROR";
+					    	break;
+					}
+					echo ("</li>");
+					while (isset($equipments[$i][$j]))
+					{
+						// Alternate between CSS classes
+						echo ("<li class='". (($i%2==1)?"even":"odd") ."'>". $equipments[$i][$j]) ."</li>";
+						$i++;
+					}
+					echo "</ul>";
+					$maxRows = $i-1;
+					$i = 1;
+					if (++$j == 2) // Avoiding the type ID
+					{
+						$j++;
+					}
 				}
 				
-			}
-			
-			
-			
-			
-			?>
+				// Options list
+				echo ("<ul><li class='title'>Options</li>");
+				for($k=0; $k<$maxRows; $k++)
+				{
+					echo ("<li class='". (($k%2==0)?"even":"odd") ."'>".
+					
+					"<form action='equipments_process.php' method='post'>
+						<input type='hidden' name='id' value=". $equipments[$k+1][0] .">
+		                <input type='submit' name='edit' value='Edit'>
+		                <input type='submit' name='delete' value='Delete'>
+		            </form></li>");
+				}
+				echo "</ul></table>";
+				?>
+			</div>
 		</div>
-		
-		
-		
-		<!--
-		<div class="table">
-		<ul>
-			<li class="title">Name</li>
-			<li class="even">Sachin</li>
-			<li class="odd">Gilchrist</li>
-			<li class="even">Dhoni</li>
-			<li class="odd">Ponting</li>
-		</ul>
-		<ul>-->
-		
-		
 		<?php
 		/*
 		// Query : get all equipments, their ID and their type

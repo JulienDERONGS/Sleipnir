@@ -1,4 +1,6 @@
 Add software (?)
-Login form -> add error messages when returning to the login page, after bad form was sent
+Login form -> add error messages when returning to the login page
+after bad form was sent
 passer les methodes de requete dans S_Database
-- Ajouter des catégoris aux equipements
+- Ajouter des catégories aux equipements
+- ajouter new types d'equip

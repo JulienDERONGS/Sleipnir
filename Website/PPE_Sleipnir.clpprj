@@ -11,8 +11,12 @@
 		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\logout.php"/>
 		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\equipments.php"/>
 		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\include\misc\redir.php"/>
+		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\equipments_process.php"/>
 	</lastopfiles>
 	<errors version="5.11">
+		<errfile name="C:\Users\Yuryo\Documents\Sleipnir\Website\equipments_process.php">
+			<error val="0;29;2;29;251;1;"/>
+		</errfile>
 	</errors>
 	<cakedata>
 	</cakedata>
@@ -25,7 +29,7 @@
 	<todoblock>
 	</todoblock>
 	<filescache>
-		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\include\php\helper.php" crc="1493057791"/>
+		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\include\php\helper.php" crc="1493214036"/>
 		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\include\misc\redir.php" crc="1493049346"/>
 		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\include\header\header.php" crc="1493054222"/>
 		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\include\database\sql_requests\MySQL_Users_creation_script.sql" crc="1492935250"/>
@@ -35,12 +39,13 @@
 		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\include\database\sleipnir_equipments_creation_script.sql" crc="1492935250"/>
 		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\include\database\MySQL_creation_script.txt" crc="1492935250"/>
 		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\include\database\DOC EN LOCAL.txt" crc="1492935249"/>
-		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\include\css\sleipnir_css.css" crc="1493056477"/>
+		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\include\css\sleipnir_css.css" crc="1493215097"/>
 		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\include\config\sleipnir_settings.ini" crc="1493052704"/>
 		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\logout.php" crc="1493049339"/>
 		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\login_process.php" crc="1493120824"/>
 		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\login.php" crc="1493045633"/>
 		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\index.php" crc="1493135836"/>
-		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\equipments.php" crc="1493173383"/>
+		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\equipments_process.php" crc="1493215098"/>
+		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\equipments.php" crc="1493214064"/>
 	</filescache>
 </project>

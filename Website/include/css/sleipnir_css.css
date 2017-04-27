@@ -124,10 +124,16 @@ body
 	color: green;
 }
 
+div .center_wrap
+{
+	text-align: center;
+}
+
 /* === Equipments' table === */
 .table
 {
 	background: #333;
+	display: inline-block;
 }
 
 .table ul
@@ -140,12 +146,16 @@ body
 
 .table ul li
 {
+	height: 22px;
+    min-height: 22px;
+    overflow: auto;
 	list-style: none;
 	padding: 5px 10px;
 }
 	
 .table ul li.title
 {
+	min-height: 60px !important;
 	font-weight: bold;
 	background: #333;
 	color: #fff;

@@ -2,7 +2,9 @@
 <phptree>
 <treenode node="/var/www/html/include/php/helper.php;PHP:PHP Include;C:\Users\Yuryo\Documents\Sleipnir\Website\login_process.php;f14;5;50;5;;C:\Users\Yuryo\Documents\Sleipnir\Website\login.php;f28;6;64;6;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 </treenode>
-<treenode node="include/header/header.php;PHP:PHP Include;C:\Users\Yuryo\Documents\Sleipnir\Website\Codelobster0.php;f28;15;53;15;;C:\Users\Yuryo\Documents\Sleipnir\Website\login.php;f28;16;53;16;;C:\Users\Yuryo\Documents\Sleipnir\Website\index.php;f28;14;53;14;;C:\Users\Yuryo\Documents\Sleipnir\Website\equipments.php;f28;15;53;15;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+<treenode node="/var/www/html/include/php/helper.php;PHP:PHP Include;C:\Users\Yuryo\Documents\Sleipnir\Website\equipments_process.php;f14;5;50;5;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+</treenode>
+<treenode node="include/header/header.php;PHP:PHP Include;C:\Users\Yuryo\Documents\Sleipnir\Website\Codelobster0.php;f28;15;53;15;;C:\Users\Yuryo\Documents\Sleipnir\Website\index.php;f28;14;53;14;;C:\Users\Yuryo\Documents\Sleipnir\Website\login.php;f28;16;53;16;;C:\Users\Yuryo\Documents\Sleipnir\Website\equipments.php;f28;15;53;15;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 </treenode>
 <treenode node="include/php/helper.php;PHP:PHP Include;C:\Users\Yuryo\Documents\Sleipnir\Website\Codelobster0.php;f28;9;50;9;;C:\Users\Yuryo\Documents\Sleipnir\Website\index.php;f28;8;50;8;;C:\Users\Yuryo\Documents\Sleipnir\Website\equipments.php;f28;9;50;9;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 </treenode>
@@ -33,6 +35,8 @@
 </treenode>
 <treenode node="__destruct;PHP:Function Name;C:\Users\Yuryo\Documents\Sleipnir\Website\include\php\helper.php;f17;44;41;44;;;;vpos;;v;;r;;d39,44;;b1,0;;m">
 </treenode>
+</treenode>
+<treenode node="superHtmlEntities;PHP:Function Name;C:\Users\Yuryo\Documents\Sleipnir\Website\include\php\helper.php;f0;103;1;122;;;;vpos;;v;;r;;d0,104;;b0,0;;mstr;;p">
 </treenode>
 </phptree>
 </codestructure>
