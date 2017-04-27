@@ -65,19 +65,6 @@
 		}
 		?>
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		<!-- 'Add equipment' -->
 		<form action='equipments_process.php' method='post' style='padding-top: 20px !important; padding-bottom: 30px !important;'>
             <input type='submit' name='add' value='Add an equipment'>
@@ -116,6 +103,7 @@
 					}
 					echo ("</li>");
 					
+					$evenOrOdd = 1;
 					$prevID = -1;
 					while ($prevID < $lastID[0])
 					{
@@ -123,10 +111,11 @@
 						while (isset($equipments[$i][$j]))
 						{
 							// Alternate between CSS classes
-							echo ("<li class='". (($i%2==1)?"even":"odd") ."'>". $equipments[$i][$j]) ."</li>";
+							echo ("<li class='". (($evenOrOdd%2==1)?"even":"odd") ."'>". $equipments[$i][$j]) ."</li>";
 							$prevID = $equipments[$i][0];
 							$prevNotSet = false;
 							$i++;
+							$evenOrOdd++;
 						}
 						if ($prevNotSet) {$i++;}
 					}
@@ -141,19 +130,21 @@
 				}
 				
 				// Options list
+				$evenOrOdd = 1;
 				echo ("<ul><li class='title'>Options</li>");
 				for($k=0; $k<$maxRows; $k++)
 				{
 					if(isset($equipments[$k+1][0]))
 					{
 						echo (
-						"<li class='". (($k%2==0)?"even":"odd") ."'>".
+						"<li class='". (($evenOrOdd%2==1)?"even":"odd") ."'>".
 							"<form action='equipments_process.php' method='post'>
-								<input type='hidden' name='id' value=". $equipments[$k+1][0] .">
+								<input type='hidden' name='id' value=". ($k+1) .">
 			                	<input type='submit' name='edit' value='Edit'>
-			                	<input type='submit' name='delete' value='Delete'>
+			                	<input type='submit' name='del' value='Delete'>
 			            	</form>
 			            </li>");
+			            $evenOrOdd++;
 					}
 				}
 				echo "</ul></table>";
