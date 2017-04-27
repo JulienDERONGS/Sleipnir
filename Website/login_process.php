@@ -24,10 +24,10 @@ elseif (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) == FALSE)
 $email = $_POST['email'];
 $password = hash("sha256", $_POST['password']);
 
-// Database helper, linked to the database configuration file
+// Users database helper, linked to the database configuration file
 $db_helper = new S_Database("user");
 
-$sql_host = 'mysql:dbname=' . $db_helper->get_sql_db() . ';host=' . $db_helper->get_sql_host();
+$sql_host = 'mysql:dbname=' . $db_helper->get_sql_db() . ';host=' . $db_helper->get_sql_host(). ";charset=utf8;port=3306";
 $sql_user = $db_helper->get_sql_user();
 $sql_password = $db_helper->get_sql_password();
 
@@ -47,7 +47,7 @@ $sql_query = "SELECT *
  				
 $result = $sleipnir_user_db->query($sql_query);
 $userExists = ($result->rowCount() == 1);
-
+$result->closeCursor();
 // E-mail and password correct --> session creation & redirection to the equipment page
 if ($userExists)
 {

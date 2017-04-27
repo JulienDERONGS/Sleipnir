@@ -1,19 +1,27 @@
 <codestructure version="5.11">
 <phptree>
-<treenode node="/var/www/html/include/php/helper.php;PHP:PHP Include;C:\Users\Yuryo\Documents\Sleipnir\Website\login.php;f28;4;64;4;;C:\Users\Yuryo\Documents\Sleipnir\Website\login_process.php;f14;1;50;1;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+<treenode node="/var/www/html/include/php/helper.php;PHP:PHP Include;C:\Users\Yuryo\Documents\Sleipnir\Website\login_process.php;f14;5;50;5;;C:\Users\Yuryo\Documents\Sleipnir\Website\login.php;f28;6;64;6;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 </treenode>
-<treenode node="include/header/header.php;PHP:PHP Include;C:\Users\Yuryo\Documents\Sleipnir\Website\index.php;f28;13;53;13;;C:\Users\Yuryo\Documents\Sleipnir\Website\login.php;f22;15;47;15;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+<treenode node="/var/www/html/include/php/helper.php;PHP:PHP Include;C:\Users\Yuryo\Documents\Sleipnir\Website\equipments_process.php;f14;5;50;5;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 </treenode>
-<treenode node="include/php/helper.php;PHP:PHP Include;C:\Users\Yuryo\Documents\Sleipnir\Website\index.php;f28;7;50;7;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+<treenode node="include/header/header.php;PHP:PHP Include;C:\Users\Yuryo\Documents\Sleipnir\Website\Codelobster0.php;f28;15;53;15;;C:\Users\Yuryo\Documents\Sleipnir\Website\index.php;f28;14;53;14;;C:\Users\Yuryo\Documents\Sleipnir\Website\login.php;f28;16;53;16;;C:\Users\Yuryo\Documents\Sleipnir\Website\equipments.php;f28;15;53;15;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 </treenode>
-<treenode node="S_Database;PHP:Class Name;C:\Users\Yuryo\Documents\Sleipnir\Website\include\php\helper.php;f0;47;1;76;;;;vpos;;vS_Helper;;c;;r;;d0,48;;b0,0;;m">
-<treenode node="__construct;PHP:Function Name;C:\Users\Yuryo\Documents\Sleipnir\Website\include\php\helper.php;f13;55;5;63;;;;vpos;;v;;r;;d4,56;;b1,0;;m">
+<treenode node="include/php/helper.php;PHP:PHP Include;C:\Users\Yuryo\Documents\Sleipnir\Website\Codelobster0.php;f28;9;50;9;;C:\Users\Yuryo\Documents\Sleipnir\Website\index.php;f28;8;50;8;;C:\Users\Yuryo\Documents\Sleipnir\Website\equipments.php;f28;9;50;9;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 </treenode>
-<treenode node="__destruct;PHP:Function Name;C:\Users\Yuryo\Documents\Sleipnir\Website\include\php\helper.php;f17;65;40;65;;;;vpos;;v;;r;;d38,65;;b1,0;;m">
+<treenode node="S_Database;PHP:Class Name;C:\Users\Yuryo\Documents\Sleipnir\Website\include\php\helper.php;f0;47;1;99;;;;vpos;;vS_Helper;;c;;r;;d0,48;;b0,0;;m">
+<treenode node="__construct;PHP:Function Name;C:\Users\Yuryo\Documents\Sleipnir\Website\include\php\helper.php;f13;57;5;74;;;;vpos;;v;;r;;d4,58;;b1,0;;mdb_type;;p">
 </treenode>
-<treenode node="get_sql_host;PHP:Function Name;C:\Users\Yuryo\Documents\Sleipnir\Website\include\php\helper.php;f15;67;5;70;;;;vpos;;v;;r;;d4,68;;b1,0;;m">
+<treenode node="__destruct;PHP:Function Name;C:\Users\Yuryo\Documents\Sleipnir\Website\include\php\helper.php;f17;76;40;76;;;;vpos;;v;;r;;d38,76;;b1,0;;m">
 </treenode>
-<treenode node="set_sql_host;PHP:Function Name;C:\Users\Yuryo\Documents\Sleipnir\Website\include\php\helper.php;f15;72;5;75;;;;vpos;;v;;r;;d4,73;;b1,0;;mnew_sql_host;;p">
+<treenode node="get_sql_db;PHP:Function Name;C:\Users\Yuryo\Documents\Sleipnir\Website\include\php\helper.php;f15;91;5;94;;;;vpos;;v;;r;;d4,92;;b1,0;;m">
+</treenode>
+<treenode node="get_sql_host;PHP:Function Name;C:\Users\Yuryo\Documents\Sleipnir\Website\include\php\helper.php;f15;78;5;81;;;;vpos;;v;;r;;d4,79;;b1,0;;m">
+</treenode>
+<treenode node="get_sql_password;PHP:Function Name;C:\Users\Yuryo\Documents\Sleipnir\Website\include\php\helper.php;f15;87;5;90;;;;vpos;;v;;r;;d4,88;;b1,0;;m">
+</treenode>
+<treenode node="get_sql_table;PHP:Function Name;C:\Users\Yuryo\Documents\Sleipnir\Website\include\php\helper.php;f15;95;5;98;;;;vpos;;v;;r;;d4,96;;b1,0;;m">
+</treenode>
+<treenode node="get_sql_user;PHP:Function Name;C:\Users\Yuryo\Documents\Sleipnir\Website\include\php\helper.php;f15;83;5;86;;;;vpos;;v;;r;;d4,84;;b1,0;;m">
 </treenode>
 </treenode>
 <treenode node="S_Helper;PHP:Class Name;C:\Users\Yuryo\Documents\Sleipnir\Website\include\php\helper.php;f0;7;1;26;;;;vpos;;v;;r;;d0,8;;b0,0;;m">
@@ -27,6 +35,8 @@
 </treenode>
 <treenode node="__destruct;PHP:Function Name;C:\Users\Yuryo\Documents\Sleipnir\Website\include\php\helper.php;f17;44;41;44;;;;vpos;;v;;r;;d39,44;;b1,0;;m">
 </treenode>
+</treenode>
+<treenode node="superHtmlEntities;PHP:Function Name;C:\Users\Yuryo\Documents\Sleipnir\Website\include\php\helper.php;f0;103;1;122;;;;vpos;;v;;r;;d0,104;;b0,0;;mstr;;p">
 </treenode>
 </phptree>
 </codestructure>

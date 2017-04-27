@@ -31,7 +31,7 @@
 				echo "
 					<div class=\"logged_in_out\">
 						<br>
-		        		Successfuly logged in.
+		        		Successfully logged in.
 		        	</div>
 				";
 				$_SESSION['logged_in'] = "";
@@ -46,7 +46,7 @@
 				echo "
 					<div class=\"logged_in_out\">
 						<br>
-		        		Successfuly logged out.
+		        		Successfully logged out.
 		        	</div>
 				";
 				$_SESSION['logged_out'] = "";
