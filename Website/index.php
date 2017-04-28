@@ -52,23 +52,6 @@
 				$_SESSION['logged_out'] = "";
 			}
 		}
-		
         ?>
     </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

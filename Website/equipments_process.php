@@ -23,6 +23,12 @@
         <div class="content_centered">
 		<?php
 
+		// Redirect if not Admin
+		if ((!isset($_SESSION['admin'])))
+		{
+			header("location: equipments.php");
+		}
+		
 		// Redirect if not coming from the form
 		if ((!isset($_POST['add'])) && (!isset($_POST['edit'])) && (!isset($_POST['del'])) && (!isset($_POST['new_equip_submit'])) && (!isset($_POST['edit_equip_submit'])) && (!isset($_POST['del_equip_submit'])))
 		{
@@ -169,7 +175,7 @@
 					<ul>
 						<li class='title'>ID</li>
 						<li class='even'>
-							<input type='input' disabled name='edit_equip_id' value='". $equipToEdit[0] ."'>
+							<input type='input' disabled name='edit_equip_id' value=". $equipToEdit[0] .">
 						</li>
 						<li class='title'>Name</li>
 						<li class='odd'>
@@ -217,7 +223,7 @@
 		
 		
 		// Delete equipment setup
-		if ((isset($_POST['del'])) || (isset($_POST['del_equip_submit'])) || (isset($_SESSION['del_equip_id'])))
+		elseif ((isset($_POST['del'])) || (isset($_POST['del_equip_submit'])) || (isset($_SESSION['del_equip_id'])))
 		{
 			// Retrieving the ID of the equipment the user wants to delete
 			if (isset($_POST['id']))
@@ -254,7 +260,7 @@
 					<ul>
 						<li class='title'>ID</li>
 						<li class='even'>
-							<input type='input' disabled name='del_equip_id' value='". $equipToDel[0] ."'>
+							<input type='input' disabled name='del_equip_id' value=". $equipToDel[0] .">
 						</li>
 						<li class='title'>Name</li>
 						<li class='odd'>
@@ -273,16 +279,16 @@
 			");
 			
 			// Equipment deletion treatment
-			if ((isset($_POST['del_equip_submit'])) && (isset($_SESSION['del_equip_id'])))
+			if (isset($_POST['del_equip_submit']))
 			{
-			$sql_edit =
+			$sql_del =
         			"DELETE
-        				FROM Equipment eq
-        				WHERE equip_id = ". $_SESSION['del_equip_id'] ."
-        			";
+        				FROM Equipment
+        				WHERE equip_id = ". $_SESSION['del_equip_id']
+        				;
         			
 			// Execute the query
-			$result3 = $sleipnir_equip_db->prepare($sql_edit);
+			$result3 = $sleipnir_equip_db->prepare($sql_del);
 			if ($result3->execute())
 			{
 				echo "<p><div class='success'>Equipment successfully deleted.<div>";

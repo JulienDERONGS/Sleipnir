@@ -22,6 +22,12 @@
 		// If coming from equipments_process.php, reset the cookie
 		unset($_SESSION['equip_redirect']);
 		
+		// Let the user consult this page only if registered
+		if ((!isset($_SESSION['user'])) && (!isset($_SESSION['admin'])))
+		{
+			header("location: index.php");
+		}
+		
 		// Equiments database helper, linked to the database configuration file
 		$db_equip_helper = new S_Database("equip");
 		
