@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project name="C:\Users\Yuryo\Documents\Sleipnir\Website\PPE_Sleipnir.clpprj">
 	<settings><PM_URL><![CDATA[C:/Users/Yuryo/Documents/Sleipnir/Website/]]></PM_URL><PM_HOME_URL><![CDATA[C:/Users/Yuryo/Documents/Sleipnir/Website/]]></PM_HOME_URL><PM_LIBS><![CDATA[]]></PM_LIBS><PM_FTP_CONNECTION><![CDATA[]]></PM_FTP_CONNECTION><PM_FTP_DIR><![CDATA[]]></PM_FTP_DIR><PM_FTP_UPLOAD_ON_SAVE><![CDATA[INT:0]]></PM_FTP_UPLOAD_ON_SAVE></settings><removed value=";"/><added value=""/><lastopfiles>
-		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\equipments.php"/>
-		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\include\css\sleipnir_css.css"/>
-		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\equipments_process.php"/>
-		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\index.php"/>
-		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\login.php"/>
-		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\login_process.php"/>
-		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\logout.php"/>
-		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\include\config\sleipnir_settings.ini"/>
-		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\include\header\header.php"/>
-		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\include\misc\redir.php"/>
-		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\include\php\helper.php"/>
 	</lastopfiles>
 	<errors version="5.11">
 	</errors>
@@ -25,6 +14,8 @@
 	</yiidata>
 	<todoblock>
 	</todoblock>
+	<dbgurls>
+	</dbgurls>
 	<filescache>
 		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\include\php\helper.php" crc="1493259383"/>
 		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\include\misc\redir.php" crc="1493049346"/>
@@ -36,13 +27,13 @@
 		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\include\database\sleipnir_equipments_creation_script.sql" crc="1492935250"/>
 		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\include\database\MySQL_creation_script.txt" crc="1492935250"/>
 		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\include\database\DOC EN LOCAL.txt" crc="1492935249"/>
-		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\include\css\sleipnir_css.css" crc="1493215097"/>
+		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\include\css\sleipnir_css.css" crc="1493307762"/>
 		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\include\config\sleipnir_settings.ini" crc="1493052704"/>
-		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\logout.php" crc="1493049339"/>
-		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\login_process.php" crc="1493120824"/>
-		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\login.php" crc="1493045633"/>
-		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\index.php" crc="1493135836"/>
-		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\equipments_process.php" crc="1493262023"/>
-		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\equipments.php" crc="1493260729"/>
+		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\logout.php" crc="1493342850"/>
+		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\login_process.php" crc="1493350254"/>
+		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\login.php" crc="1493307763"/>
+		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\index.php" crc="1493342948"/>
+		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\equipments_process.php" crc="1493342458"/>
+		<file name="C:\Users\Yuryo\Documents\Sleipnir\Website\equipments.php" crc="1493350457"/>
 	</filescache>
 </project>
