@@ -29,7 +29,7 @@
 			if ($_SESSION['logged_in'] == true)
         	{
 				echo "
-					<div class=\"logged_in_out\">
+					<div class=\"success\">
 						<br>
 		        		Successfully logged in.
 		        	</div>
@@ -44,7 +44,7 @@
 			if ($_SESSION['logged_out'] == true)
         	{
 				echo "
-					<div class=\"logged_in_out\">
+					<div class=\"success\">
 						<br>
 		        		Successfully logged out.
 		        	</div>

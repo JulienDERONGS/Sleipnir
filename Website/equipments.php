@@ -17,32 +17,7 @@
 
         <!-- Sticky title -->
         <div class="sticky_title">EQUIPMENTS LIST</div>
-
-        <!-- Equipments' table' -->
-        <!--<div class="table">
-			<ul>
-				<li class="title">Name</li>
-				<li class="even">Sachin</li>
-				<li class="odd">Gilchrist</li>
-				<li class="even">Dhoni</li>
-				<li class="odd">Ponting</li>
-			</ul>
-			<ul>
-				<li class="title">Country</li>
-				<li class="even">India</li>
-				<li class="odd">Australia</li>
-				<li class="even">India</li>
-				<li class="odd">Australia</li>
-			</ul>
-			<ul>
-				<li class="title">Ranking</li>
-				<li class="even">1</li>
-				<li class="odd">2</li>
-				<li class="even">6</li>
-				<li class="odd">10</li>
-			</ul>
-		</div>-->
-		
+        
 		<?php
 		// If coming from equipments_process.php, reset the cookie
 		unset($_SESSION['equip_redirect']);
@@ -73,7 +48,7 @@
 		$result = $sleipnir_equip_db->prepare($sql_query);
 		$result->execute();
 		
-		// Remplissage des données dans un tableau
+		// Inserting data into an array
 		$equipments = array(array());
 		
 		while ($row = $result->fetch())
@@ -87,7 +62,8 @@
 			$equipments[$id][1] = $en;
 			$equipments[$id][2] = $tid;
 			$equipments[$id][3] = $et;
-		}?>
+		}
+		?>
 		
 		<!-- 'Add equipment' -->
 		<form action='equipments_process.php' method='post' style='padding-top: 20px !important; padding-bottom: 30px !important;'>
@@ -101,11 +77,17 @@
 				$i = 1;
 				$j = 0;
 				
+				// Remember the equipments' list's last ID
+				end($equipments);
+				$lastID = current($equipments);
+				reset($equipments);
+				
 				while (isset($equipments[$i][$j]))
 				{
 					// Title selection
 					echo ("<ul><li class='title'>");
-					switch ($j) {
+					switch ($j)
+					{
 					    case 0:
 					        echo "ID";
 					        break;
@@ -120,12 +102,24 @@
 					    	break;
 					}
 					echo ("</li>");
-					while (isset($equipments[$i][$j]))
+					
+					$evenOrOdd = 1;
+					$prevID = -1;
+					while ($prevID < $lastID[0])
 					{
-						// Alternate between CSS classes
-						echo ("<li class='". (($i%2==1)?"even":"odd") ."'>". $equipments[$i][$j]) ."</li>";
-						$i++;
+						$prevNotSet = true;
+						while (isset($equipments[$i][$j]))
+						{
+							// Alternate between CSS classes
+							echo ("<li class='". (($evenOrOdd%2==1)?"even":"odd") ."'>". $equipments[$i][$j]) ."</li>";
+							$prevID = $equipments[$i][0];
+							$prevNotSet = false;
+							$i++;
+							$evenOrOdd++;
+						}
+						if ($prevNotSet) {$i++;}
 					}
+					
 					echo "</ul>";
 					$maxRows = $i-1;
 					$i = 1;
@@ -136,75 +130,26 @@
 				}
 				
 				// Options list
+				$evenOrOdd = 1;
 				echo ("<ul><li class='title'>Options</li>");
 				for($k=0; $k<$maxRows; $k++)
 				{
-					echo ("<li class='". (($k%2==0)?"even":"odd") ."'>".
-					
-					"<form action='equipments_process.php' method='post'>
-						<input type='hidden' name='id' value=". $equipments[$k+1][0] .">
-		                <input type='submit' name='edit' value='Edit'>
-		                <input type='submit' name='delete' value='Delete'>
-		            </form></li>");
+					if(isset($equipments[$k+1][0]))
+					{
+						echo (
+						"<li class='". (($evenOrOdd%2==1)?"even":"odd") ."'>".
+							"<form action='equipments_process.php' method='post'>
+								<input type='hidden' name='id' value=". ($k+1) .">
+			                	<input type='submit' name='edit' value='Edit'>
+			                	<input type='submit' name='del' value='Delete'>
+			            	</form>
+			            </li>");
+			            $evenOrOdd++;
+					}
 				}
 				echo "</ul></table>";
 				?>
 			</div>
 		</div>
-		<?php
-		/*
-		// Query : get all equipments, their ID and their type
-		$sql_query = "SELECT eq.equip_id, eq.equip_name, eqt.equipType_name
-		 				FROM Equipment eq, EquipmentType eqt
-		 				WHERE eq.FK_equipType_id = eqt.equipType_id
-		 				";
-		 				
-		$result = $sleipnir_equip_db->prepare($sql_query);
-		$result->execute();
-		
-		while ($row = $result->fetch())
-		{
-			$id = $row['equip_id'];
-			$en = $row['equip_name'];
-			$et = $row['equipType_name'];
-			
-			// Remplissage des données dans un tableau
-			$equipments = array(array());
-				$equipments[$id][0] = $id;
-				//echo "<p>".$equipments[$id][0]." ";
-				$equipments[$id][1] = $en;
-				//echo $equipments[$id][1]." ";
-				$equipments[$id][2] = $et;
-				//echo $equipments[$id][2]." ";
-		}
-		*/
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		?>
     </body>
 </html>

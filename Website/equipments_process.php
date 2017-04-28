@@ -24,9 +24,8 @@
 		<?php
 
 		// Redirect if not coming from the form
-		if ((!isset($_POST['add'])) && (!isset($_POST['edit'])) && (!isset($_POST['delete'])) && (!isset($_POST['new_equip_submit'])))
+		if ((!isset($_POST['add'])) && (!isset($_POST['edit'])) && (!isset($_POST['del'])) && (!isset($_POST['new_equip_submit'])) && (!isset($_POST['edit_equip_submit'])) && (!isset($_POST['del_equip_submit'])))
 		{
-			$_SESSION['equip_redirect'] = "direct_url";
 			header("location: equipments.php");
 		}
 		
@@ -47,11 +46,32 @@
 		    echo 'Connection failed : ' . $e->getMessage();
 		}
 		
-		// Add form
+		
+		
+		// New equipment request form (add part 1)
 		if ((isset($_POST['add'])) || (isset($_POST['new_equip_submit'])))
 		{
+			// Get types values
+			$sql_query = "SELECT eqt.equipType_name
+			 				FROM EquipmentType eqt
+			 				";
+			
+			$result = $sleipnir_equip_db->prepare($sql_query);
+			$result->execute();
+			
+			// Inserting data into an array
+			$types = array();
+			
+			while ($row = $result->fetch())
+			{
+				$et = $row['equipType_name'];
+				$types[] = $et;
+			}
+			$result->closeCursor();
+			
+			// New equipment form
 			echo ("
-			<form action='#' method='post'>
+			<form action='#' method='post' id='new_equip'>
 				<div class='table'>
 					<ul>
 						<li class='title'>Name</li>
@@ -60,10 +80,11 @@
 						</li>
 						<li class='title'>Type</li>
 						<li class='odd'>
-							<input type='input' name='new_equip_type' value=''>
+							<select name='new_equip_type' form='new_equip'>
+								".getOptionsFromArray($types)."
+							</select>
 						</li>
 						<li class='even'>
-							<input type='hidden' name='new_equip_process' value='added'>
 							<input type='submit' name='new_equip_submit' value='Add new equipment'>
 						</li>
 					</ul>
@@ -71,84 +92,203 @@
 			</form>
 			");
 			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
+			// New equipment request treatment (add part 2)
+			if ((isset($_POST['new_equip_submit'])) && (isset($_POST['new_equip_name'])) && (isset($_POST['new_equip_type'])) )
+			{
+				if ($_POST['new_equip_name'] != "")
+				{
+					$sql_add = "INSERT INTO `Equipment` (FK_equipType_id, equip_name)
+								VALUES ((
+								SELECT(equipType_id)
+								FROM EquipmentType
+								WHERE (equipType_name LIKE '". superHtmlEntities($_POST['new_equip_type']) ."'))
+		        				, '". superHtmlEntities($_POST['new_equip_name']) ."');";
+		        
+					// Execute the query
+					$result = $sleipnir_equip_db->prepare($sql_add);
+					if ($result->execute())
+					{
+						echo "<p><div class='success'>Equipment successfully added.<div>";
+					}
+					$result->closeCursor();
+				}
+			}
 		}
-		else
+		
+		
+		// Edit an equipment
+		elseif((isset($_POST['edit'])) || (isset($_POST['edit_equip'])) || (isset($_POST['edit_equip_submit'])))
 		{
 			// Retrieving the ID of the equipment the user wants to treat
-			$id = $_POST['id'];
+			if (isset($_POST['id']))
+			{
+				$_SESSION['edit_equip_id'] = $_POST['id'];
+			}
+			$id = $_SESSION['edit_equip_id'];
 			
-			// Query : get all equipments, their ID and their type
-			$sql_query = "SELECT eq.equip_name, eqt.equipType_name
-			 				FROM Equipment eq, EquipmentType eqt
-			 				WHERE eqt.equipType_id = ". $id;
-			 				
+			// Get types values
+			$sql_query = "SELECT eqt.equipType_name
+			 				FROM EquipmentType eqt
+			 				";
+			
 			$result = $sleipnir_equip_db->prepare($sql_query);
 			$result->execute();
-			
-			// Remplissage des données dans un tableau
-			$equipments = array();
-			
+			$types = array();
 			while ($row = $result->fetch())
 			{
-				$en = $row['equip_name'];
 				$et = $row['equipType_name'];
-				
-				$equipments[0] = $en;
-				$equipments[1] = $et;
+				$types[] = $et;
 			}
+			$result->closeCursor();
 			
-			print_r($equipments);
+			// Retreiving info to edit
+			$sql_query_en = "SELECT eq.equip_name
+							FROM Equipment eq
+							WHERE eq.equip_id LIKE '". $id ."'";
+			
+			$sql_query_et = "SELECT eqt.equipType_name
+							FROM Equipment eq, EquipmentType eqt
+							WHERE eq.equip_id LIKE '". $id ."'";
+							
+			$equipToEdit = array();
+			$equipToEdit[0] = $id;
+			
+			$result_en = $sleipnir_equip_db->query($sql_query_en);
+			$row1 = $result_en->fetch();
+			$equipToEdit[1] = $row1['equip_name'];
+			$result_et = $sleipnir_equip_db->query($sql_query_et);
+			$row2 = $result_et->fetch();
+			$equipToEdit[2] = $row2['equipType_name'];
+			$result_en->closeCursor();
+			$result_et->closeCursor();			
+			
+			// Editable equipment form
+			echo ("
+			<form action='#' method='post' id='edit_equip'>
+				<div class='table'>
+					<ul>
+						<li class='title'>ID</li>
+						<li class='even'>
+							<input type='input' disabled name='edit_equip_id' value='". $equipToEdit[0] ."'>
+						</li>
+						<li class='title'>Name</li>
+						<li class='odd'>
+							<input type='input' name='edit_equip_name' value='". $equipToEdit[1] ."'>
+						</li>
+						<li class='title'>Type</li>
+						<li class='even'>
+							<select name='edit_equip_type' form='edit_equip' value='". $equipToEdit[2] ."'>
+								".getOptionsFromArray($types)."
+							</select>
+						</li>
+						<li class='odd'>
+							<input type='submit' name='edit_equip_submit' value='Modify this equipment'>
+						</li>
+					</ul>
+				</div>
+			</form>
+			");
+			
+			// Editable equipment treatment
+			if ((isset($_POST['edit_equip_submit'])) && (isset($_POST['edit_equip_name'])))
+			{
+				if ($_POST['edit_equip_name'] != "")
+				{
+		        	$sql_edit =
+		        			"UPDATE Equipment
+		        				SET equip_name = '". superHtmlEntities($_POST['edit_equip_name']) ."',
+		        				FK_equipType_id =
+		        					(SELECT equipType_id
+		        					FROM EquipmentType
+		        					WHERE equipType_name = '". superHtmlEntities($_POST['edit_equip_type']) ."')
+		        					WHERE equip_id = ". $_SESSION['edit_equip_id'] .";
+		        			";
+		        			
+					// Execute the query
+					$result2 = $sleipnir_equip_db->prepare($sql_edit);
+					if ($result2->execute())
+					{
+						echo "<p><div class='success'>Equipment successfully edited.<div>";
+					}
+					$result2->closeCursor();
+				}
+			}
 		}
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		// delete / edit
-		
-		
-		
-		
-		// Unset form's $_POST
-		if (isset($_POST))
+		// Delete equipment setup
+		if ((isset($_POST['del'])) || (isset($_POST['del_equip_submit'])) || (isset($_SESSION['del_equip_id'])))
 		{
-			unset ($_POST);
+			// Retrieving the ID of the equipment the user wants to delete
+			if (isset($_POST['id']))
+			{
+				$_SESSION['del_equip_id'] = $_POST['id'];
+			}
+			$id = $_SESSION['del_equip_id'];
+			
+			// Retreiving info
+			$sql_query_en = "SELECT eq.equip_name
+							FROM Equipment eq
+							WHERE eq.equip_id LIKE '". $id ."'";
+			
+			$sql_query_et = "SELECT eqt.equipType_name
+							FROM Equipment eq, EquipmentType eqt
+							WHERE eq.equip_id LIKE '". $id ."'";
+							
+			$equipToDel = array();
+			$equipToDel[0] = $id;
+			
+			$result_en = $sleipnir_equip_db->query($sql_query_en);
+			$row1 = $result_en->fetch();
+			$equipToDel[1] = $row1['equip_name'];
+			$result_et = $sleipnir_equip_db->query($sql_query_et);
+			$row2 = $result_et->fetch();
+			$equipToDel[2] = $row2['equipType_name'];
+			$result_en->closeCursor();
+			$result_et->closeCursor();			
+			
+			// Delete equipment form
+			echo ("
+			<form action='#' method='post' id='del_equip'>
+				<div class='table'>
+					<ul>
+						<li class='title'>ID</li>
+						<li class='even'>
+							<input type='input' disabled name='del_equip_id' value='". $equipToDel[0] ."'>
+						</li>
+						<li class='title'>Name</li>
+						<li class='odd'>
+							<input type='input' disabled name='del_equip_name' value='". $equipToDel[1] ."'>
+						</li>
+						<li class='title'>Type</li>
+						<li class='even'>
+							<input type='input' disabled name='del_equip_type' value='". $equipToDel[2] ."'>
+						</li>
+						<li class='odd'>
+							<input type='submit' name='del_equip_submit' value='Delete this equipment' style='color: red;'>
+						</li>
+					</ul>
+				</div>
+			</form>
+			");
+			
+			// Equipment deletion treatment
+			if ((isset($_POST['del_equip_submit'])) && (isset($_SESSION['del_equip_id'])))
+			{
+			$sql_edit =
+        			"DELETE
+        				FROM Equipment eq
+        				WHERE equip_id = ". $_SESSION['del_equip_id'] ."
+        			";
+        			
+			// Execute the query
+			$result3 = $sleipnir_equip_db->prepare($sql_edit);
+			if ($result3->execute())
+			{
+				echo "<p><div class='success'>Equipment successfully deleted.<div>";
+			}
+			$result3->closeCursor();
+			}
 		}
 		?>
 		</div>

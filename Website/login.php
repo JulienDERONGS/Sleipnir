@@ -51,7 +51,7 @@
     			// If tried to go directly on login_process.php without logging in first
 				if ($_SESSION['login_redirect'] == "direct_url")
 				{ echo "
-					<div class=\"login_error\">
+					<div class='error'>
 						<br>
 						Please log in from the above form.
 					</div>
@@ -59,7 +59,7 @@
 				}
 				elseif ($_SESSION['login_redirect'] == "wrong_email_password")
 				{ echo "
-					<div class=\"login_error\">
+					<div class='login_error'>
 						<br>
 						Wrong e-mail and/or password.
 					</div>

@@ -101,7 +101,7 @@ class S_Database extends S_Helper
 
 /* ========== Unicode-proof htmlentities ========== */
 /* ---------- Returns 'normal' chars as chars and weirdos as numeric html entites ---------- */
-function superHtmlEntities($str)
+function	superHtmlEntities($str)
 {
 	$str2 = NULL;
     // Get rid of existing entities, and else double-escape
@@ -121,4 +121,27 @@ function superHtmlEntities($str)
     }
     return $str2;
 }
+
+function	getOptionsFromArray($array)
+{
+	$i = 0;
+	$options = "";
+	
+	while (isset($array[$i]))
+	{
+		$options .= "<option value='". $array[$i] ."'>". $array[$i] ."</option>";
+		$i++;
+	}
+	return $options;
+}
+
+
+
+
+
+
+
+
+
+
 ?>
